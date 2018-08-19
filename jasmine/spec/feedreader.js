@@ -29,7 +29,7 @@ $(function() {
       it('url is defined', function() {
         allFeeds.forEach(feed => {
           expect(feed.url).toBeDefined();
-          expect(feed.url.length).not.toBeNull();
+          expect(feed.url.length > 0).toBe(true);
         });
       });
 
@@ -39,7 +39,7 @@ $(function() {
       it('name is defined', function() {
         allFeeds.forEach(feed => {
           expect(feed.name).toBeDefined();
-          expect(feed.name.length).not.toBeNull();
+          expect(feed.name.length > 0).toBe(true);
         });
       });
   });
@@ -77,7 +77,8 @@ $(function() {
 
        it('completes work', function() {
          const feed = document.querySelector('.feed');
-         expect(feed.children).toBeDefined();
+         expect(feed.querySelector('.entry')).toBeDefined();
+         console.log(feed.querySelector('.entry'));
        });
 });
 
@@ -88,16 +89,18 @@ $(function() {
      const feed = document.querySelector('.feed');
      let firstFeed = feed.innerHTML;
      beforeEach(function(done) {
-       // Load first feed and save the entries
+       // Load first feed
        loadFeed(0, function() {
+         // Once the first feed is loaded, save the entries into a variable.
+         // Then, load the second feed and signal completion of asynchronous
+         // function.
          firstFeed = feed.innerHTML;
+         loadFeed(1,done);
        });
-       // Load second feed and signal completion of asynchronous function
-       loadFeed(1,done);
      });
 
      it('content changes', function() {
        expect(feed.innerHTML === firstFeed).toBe(false);
-     })
+     });
    });
 }());
