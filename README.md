@@ -12,11 +12,11 @@ bottom of the screen. It will alert you if any of the specifications fails.
 
 ## How to Run on Local Machine
 * Clone repo to working directory https://github.com/super-ming/frontend-nanodegree-feedreader.git
-* Install dependencies: ```npm install```
-* If you do not have npm already installed, [download](https://nodejs.org/en/download/) Node.js and run the installer.
+and open index.html in your browser.
+
 
 ## Dependencies
-* Jasmine ^2.2.x
+* None
 
 ## License
 This project is licensed under GNU GPLv3.
