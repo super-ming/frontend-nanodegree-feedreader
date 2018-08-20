@@ -1,3 +1,6 @@
+/* eslint-env jasmine */
+/* global allFeeds, loadFeed */
+
 /* feedreader.js
  *
  * This is the spec file that Jasmine will read and contains
@@ -20,7 +23,7 @@ $(function() {
        */
       it('are defined', () => {
           expect(allFeeds).toBeDefined();
-          expect(allFeeds.length).not.toBe(0);
+          expect(allFeeds.length).toBeGreaterThan(0);
       });
 
       /* Test that loops through each feed in the allFeeds object
@@ -29,7 +32,7 @@ $(function() {
       it('url is defined', function() {
         allFeeds.forEach(feed => {
           expect(feed.url).toBeDefined();
-          expect(feed.url.length > 0).toBe(true);
+          expect(feed.url.length).toBeGreaterThan(true);
         });
       });
 
@@ -39,7 +42,7 @@ $(function() {
       it('name is defined', function() {
         allFeeds.forEach(feed => {
           expect(feed.name).toBeDefined();
-          expect(feed.name.length > 0).toBe(true);
+          expect(feed.name.length).toBeGreaterThan(true);
         });
       });
   });
@@ -77,8 +80,7 @@ $(function() {
 
        it('completes work', function() {
          const feed = document.querySelector('.feed');
-         expect(feed.querySelector('.entry')).toBeDefined();
-         console.log(feed.querySelector('.entry'));
+         expect(feed.querySelectorAll('.entry').length).toBeGreaterThan(0);
        });
 });
 
