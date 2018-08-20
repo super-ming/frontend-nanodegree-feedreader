@@ -89,7 +89,7 @@ $(function() {
      * that the content actually changes. Remember, loadFeed() is asynchronous.
      */
      const feed = document.querySelector('.feed');
-     let firstFeed = feed.innerHTML;
+     let firstFeed;
      beforeEach(function(done) {
        // Load first feed
        loadFeed(0, function() {
