@@ -32,7 +32,7 @@ $(function() {
       it('url is defined', function() {
         allFeeds.forEach(feed => {
           expect(feed.url).toBeDefined();
-          expect(feed.url.length).toBeGreaterThan(true);
+          expect(feed.url.length).toBeGreaterThan(0);
         });
       });
 
@@ -42,7 +42,7 @@ $(function() {
       it('name is defined', function() {
         allFeeds.forEach(feed => {
           expect(feed.name).toBeDefined();
-          expect(feed.name.length).toBeGreaterThan(true);
+          expect(feed.name.length).toBeGreaterThan(0);
         });
       });
   });
